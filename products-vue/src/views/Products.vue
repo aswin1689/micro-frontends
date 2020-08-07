@@ -50,6 +50,7 @@ export default {
             "Now even the heaviest packages can withstand rough handling. The strong, tough, solvent-free hot melt adhesive of Scotch Heavy Duty Packaging Tape locks in your heavy duty contents and locks out everything else.",
         },
       ],
+      cart: window.sessionStorage.getItem('cart') != null ? JSON.parse(window.sessionStorage.getItem('cart')) : [],
     };
   },
   methods: {
@@ -60,9 +61,11 @@ export default {
       });
     },
     addToCart(product) {
-      console.log(product);
-      const event = new CustomEvent("addToCart", { detail: product });
-      window.dispatchEvent(event);
+      // const event = new CustomEvent("addToCart", { detail: product });
+      // window.dispatchEvent(event);
+      const { name, price } = product;
+      this.cart.push({ name, price, quantity: 1 });
+      window.sessionStorage.setItem("cart", JSON.stringify(this.cart));
     },
   },
 };

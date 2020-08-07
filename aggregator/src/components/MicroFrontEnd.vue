@@ -29,8 +29,8 @@ export default {
       });
   },
   beforeDestroy() {
-    const { name } = this;
-    window[`unmount${name}`](`${name}-container`);
+    // const { name } = this;
+    // window[`unmount${name}`](`${name}-container`);
   },
   methods: {
     renderMicroFrontend: function () {

@@ -10,8 +10,8 @@ function App() {
     // window.addEventListener('addToCart', (event) => {
     //   setItems({ items: [...items, event.product] });
     // }, false);
-    setItems(JSON.parse(window.sessionStorage.getItem('cart')));
-  });
+    window.sessionStorage.getItem('cart') != null ? setItems(JSON.parse(window.sessionStorage.getItem('cart'))) : setItems([]);
+  }, []);
 
   const renderCart = () => {
     if (items.length === 0) {
